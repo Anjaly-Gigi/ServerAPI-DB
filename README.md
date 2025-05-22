@@ -51,7 +51,8 @@
   age  INT
 );
 
--- Insert a sample user
+-- Insert a sample user  
+
 INSERT INTO users (username, password, email, first_name, last_name, age)
 VALUES ('anjaly', anjaly123, 'anjalygigi@gmail.com', 'Anjaly','Gigi',23);
 
