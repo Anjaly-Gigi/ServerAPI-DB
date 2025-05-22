@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h2>Welcome to Home Page</h2>
+    <button id="getDataBtn">Retrieve Data</button>
+    <div id="userData" class="user-info hidden">
+      <h3>User Info</h3>
+      <p><strong>Username:</strong> <span id="uName"></span></p>
+      <p><strong>Email:</strong> <span id="email"></span></p>
+       <p><strong>First Name:</strong> <span id="fName"></span></p>
+        <p><strong>Last Name:</strong> <span id="lName"></span></p>
+         <p><strong>Age:</strong> <span id="age"></span></p>
+    </div>
+  </div>
+  <script>
+    document.getElementById("getDataBtn").addEventListener("click", async () => {
+  const username = localStorage.getItem("username");
+
+  if (!username) {
+    alert("User not logged in");
+    return;
+  }
+
+  const res = await fetch(`/userdata?username=${username}`);
+  const data = await res.json();
+
+  if (data.status === "success") {
+    document.getElementById("userData").classList.remove("hidden");
+    document.getElementById("uName").textContent = data.user.username;
+    document.getElementById("email").textContent = data.user.email;
+    document.getElementById("fName").textContent = data.user.first_name;
+    document.getElementById("lName").textContent = data.user.last_name;
+    document.getElementById("age").textContent = data.user.age;
+  } else {
+    alert(data.message);
+  }
+});
+
+  </script>
+</body>
+</html>
