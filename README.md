@@ -6,7 +6,7 @@
 - HTML, CSS, JavaScript
 - RESTful API
 
-### Instruction
+### Instruction:
 * Install XAMPP and start **Apache** and **MySQL** in the control panel.
   
 * Go to `http://localhost/phpmyadmin` and create a new database `user_db`
@@ -36,7 +36,24 @@
   display user data after login.
   
 * Run the Flask app on localhost and tested the full login flow and data retrieval functionality.
-  
+
+### Database Scripts:
+
+--Table creation
+
+  CREATE TABLE users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(50) NOT NULL,
+  password VARCHAR(100) NOT NULL,
+  email VARCHAR(100),
+  first_name VARCHAR(100)
+  last_name VARCHAR(100)
+  age  INT
+);
+
+-- Insert a sample user
+INSERT INTO users (username, password, email, first_name, last_name, age)
+VALUES ('anjaly', anjaly123, 'anjalygigi@gmail.com', 'Anjaly','Gigi',23);
 
   
   
