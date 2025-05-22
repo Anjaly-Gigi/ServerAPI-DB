@@ -35,7 +35,7 @@
   handle responses and added a button in `home.html` that uses JavaScript to call the API and 
   display user data after login.
   
-* Ran the Flask app on localhost and tested the full login flow and data retrieval functionality.
+* Run the Flask app on localhost and tested the full login flow and data retrieval functionality.
   
 
   
